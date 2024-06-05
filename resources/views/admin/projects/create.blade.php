@@ -26,7 +26,7 @@
         </div>
         {{-- input per la selezione del type --}}
         <div class="mb-3">
-            <label for="type_id" class="form-label">type</label>
+            <label for="type_id" class="form-label">Type</label>
             <select class="form-select" id="type_id" name="type_id">
                 <option value="">Select a type</option>
                 @foreach ($types as $type)
