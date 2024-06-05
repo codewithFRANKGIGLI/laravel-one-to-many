@@ -14,7 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::table('projects', function (Blueprint $table) {
-            //
+            // unsignedbiginteger per l'id types, after id e nullable
+            $table->unsignedBigInteger('type_id')->nullable()->after('id');
+            // foreign key
+            $table->foreign('type_id')->references('id')->on('types')->onDelete('set null');
         });
     }
 
@@ -26,7 +29,10 @@ return new class extends Migration
     public function down()
     {
         Schema::table('projects', function (Blueprint $table) {
-            //
+            // drop foreign key
+            $table->dropForeign(['projects_type_id_foreign']);
+            // drop column
+            $table->dropColumn('type_id');
         });
     }
 };
