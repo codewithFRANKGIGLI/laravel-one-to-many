@@ -26,6 +26,16 @@
             <input type="text" class="form-control" id="client_name" name="client_name" value="{{$project->client_name}}">
         </div>
         <div class="mb-3">
+            <label for="type_id" class="form-label">Type</label>
+            <select class="form-select" id="type_id" name="type_id">
+                <option value="">Select a type</option>
+                {{-- ciclo foreach per le varie option dei types --}}
+                @foreach ($types as $type)
+                    <option @selected($type->id == old('type_id', $project->type_id)) value="{{ $type->id }}">{{ $type->name }}</option>
+                @endforeach
+              </select>
+        </div>
+        <div class="mb-3">
             <label for="cover_img" class="form-label">Image</label>
             <input class="form-control" type="file" id="cover_img" name="cover_img">
             

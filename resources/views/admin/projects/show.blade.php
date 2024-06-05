@@ -17,6 +17,10 @@
     </div>
 
     <div>
+        <strong>Type</strong>: {{ $project->type ? $project->type->name : 'no type' }}
+    </div>
+
+    <div>
         <strong>Created at</strong>: {{ $project->created_at }}
     </div>
 
